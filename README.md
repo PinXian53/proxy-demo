@@ -47,7 +47,7 @@
         }
     }
     ```
-- 套用 Proxy 設定
+- 套用 Proxy 設定 (多設定 configuration)
     ```java
     @FeignClient(
         name = "MyClient",
@@ -101,5 +101,5 @@
 # 測試 http (確認 response 是不是回傳 proxy server 的 ip)
 curl -i --proxy {proxy-server-ip}:8888 http://httpbin.org/ip
 # 測試 https (確認 response 是不是回傳 proxy server 的 ip)
-curl -i --proxy {proxy-server-ip}:8888 https://myip.com.tw/
+curl -i --proxy {proxy-server-ip}:8888 https://myip.com.tw
 ```
