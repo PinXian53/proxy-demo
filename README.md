@@ -8,7 +8,7 @@
     system.proxy.type={使用 Java Proxy(JAVA) or Feign Client Proxy(FEIGN)}
     system.proxy.exclude={不使用 Proxy 的網站}
     ```
-- 執行 ProxyDemoApplicationTests.java 進行測試
+- 執行 `ProxyDemoApplicationTests.java` 進行測試
 
 ---
 ## 設定重點整理
