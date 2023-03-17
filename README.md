@@ -9,6 +9,7 @@
     system.proxy.exclude={不使用 Proxy 的網站}
     ```
 - 執行 `ProxyDemoApplicationTests.java` 進行測試
+  - 如果查出的 ip 是 proxy server 的，代表成功
 
 ---
 ## 設定重點整理
