@@ -17,18 +17,21 @@
 - 說明
   - 設定方式最簡單，只需要設定
   - 會影響到所有的 http 連線，但可以設定排除名單
-- 新增 Properties 設定
-    ```shell
-    # Http Proxy 設定
-    http.proxyHost=127.0.0.1
-    http.proxyPort=8888
-    # Https Proxy 設定
-    https.proxyHost=127.0.0.1
-    https.proxyPort=8888
-    # 不使用 Proxy 的清單
-    # https://docs.oracle.com/javase/8/docs/api/java/net/doc-files/net-properties.html
-    http.nonProxyHosts=httpbin.org|myip.com.tw|127.*|[::1]
-    ```
+- 設定方式共兩種：
+  > 測試發現，若設定在 application.properties，無法生效
+  - 在 JVM 的啟動參數加上設定
+      ```shell
+      -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=8888 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=8888
+      ```
+  - 啟動時，在程式內使用 System.setProperty 進行設定
+      ```java
+      System.setProperty("http.proxyHost", "127.0.0.1");
+      System.setProperty("http.proxyPort", "8888");
+      System.setProperty("https.proxyHost", "127.0.0.1");
+      System.setProperty("https.proxyPort", "8888");
+      // https://docs.oracle.com/javase/8/docs/api/java/net/doc-files/net-properties.html
+      System.setProperty("http.nonProxyHosts", "httpbin.org|myip.com.tw|127.*|[::1]");
+      ```
 
 ### 方式 2：設定 Feign Client Proxy
 - 說明
